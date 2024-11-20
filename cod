@@ -1,0 +1,30 @@
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController; 1 
+
+import java.util.ArrayList;
+import java.util.List;
+
+@RestController
+public class MeuController {
+
+    @GetMapping("/hello")
+    public String hello() {
+        return "Hello, World!";
+    }
+
+    @GetMapping("/usuarios")
+    public List<Usuario> getUsuarios() {
+        List<Usuario> usuarios = new ArrayList<>();
+        usuarios.add(new Usuario(1, "João", "joao@email.com"));
+        usuarios.add(new Usuario(2, "Maria", "maria@email.com"));
+        return usuarios;
+    }
+}
+
+class Usuario {
+    private int id;
+    private String nome;
+    private String email;
+
+    // Construtor e getters/setters
+}   
